@@ -5,7 +5,7 @@ import Header from "./Header";
 import NotFound from "./NotFound";
 import CreateDeckBtn from "./features/deck/CreateDeckBtn";
 import DeckList from "./features/deck/DeckList";
-import DeckFullView from "./features/deck/DeckFullView";
+import Deck from "./features/deck/Deck";
 import { listDecks } from "../utils/api/index"
 
 function Layout() {
@@ -32,7 +32,7 @@ function Layout() {
                   <DeckList decks={decks}/>
               </Route>
               <Route path={`/decks/:deckId`}>
-                  <DeckFullView findDeck={selectDeckById}/>
+                  <Deck findDeck={selectDeckById}/>
               </Route>
               <Route>
                   <NotFound />

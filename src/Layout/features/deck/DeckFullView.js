@@ -1,11 +1,9 @@
 import React from "react";
-import {useParams, Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import CardList from "../card/CardList";
 
-function DeckFullView({ findDeck }) {
-    const { deckId } = useParams();
-    const deck = findDeck(parseInt(deckId))
+function DeckFullView({ deck }) {
     return (
         <div>
             <h2>Breadcrumb Navbar <Link to='/'>Home</Link></h2>
