@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route } from "react-router-dom";
 
 import Header from "./Header";
 import NotFound from "./NotFound";
 import CreateDeckBtn from "./features/deck/CreateDeckBtn";
 import DeckList from "./features/deck/DeckList";
+import DeckFullView from "./features/deck/DeckFullView";
 import { listDecks } from "../utils/api/index"
 
 function Layout() {
@@ -16,6 +17,10 @@ function Layout() {
         return abortController.abort()
     }, [])
 
+    const selectDeckById = (deckId) => {
+        return decks.filter(deck => deck.id === deckId)[0]
+    }
+
   return (
     <>
       <Header />
@@ -25,6 +30,9 @@ function Layout() {
               <Route exact path='/'>
                   <CreateDeckBtn />
                   <DeckList decks={decks}/>
+              </Route>
+              <Route path={`/decks/:deckId`}>
+                  <DeckFullView findDeck={selectDeckById}/>
               </Route>
               <Route>
                   <NotFound />

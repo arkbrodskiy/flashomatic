@@ -1,11 +1,11 @@
 import React from "react";
 
-import DeckView from "./DeckView";
+import DeckSummaryView from "./DeckSummaryView";
 
 function DeckList({ decks }) {
     return (
         <div>
-            {decks.map(deck => <DeckView key={`deck-${deck.id}`} deck={deck}/>)}
+            {decks.map(deck => <DeckSummaryView key={`deck-${deck.id}`} deck={deck}/>)}
         </div>
     );
 }
