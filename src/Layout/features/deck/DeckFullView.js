@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 import CardList from "../card/CardList";
 
 function DeckFullView({ deck }) {
+    const { url } = useRouteMatch()
     return (
         <div>
             <h2>Breadcrumb Navbar <Link to='/'>Home</Link></h2>
@@ -12,7 +13,7 @@ function DeckFullView({ deck }) {
                     <div className="card-body">
                         <h5 className="card-title">{deck.name}</h5>
                         <p className="card-text">{deck.description}</p>
-                        <a href="#" className="btn btn-secondary">Edit</a>
+                        <Link to={`${url}/edit`} className="btn btn-secondary">Edit</Link>
                         <a href="#" className="btn btn-primary">Study</a>
                         <a href="#" className="btn btn-primary">Add Cards</a>
                         <a href="#" className="btn btn-danger">Delete</a>

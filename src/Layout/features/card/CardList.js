@@ -7,7 +7,7 @@ function CardList({ cards }) {
     return (
         <div>
             <h3>Cards</h3>
-            {cards.map(card => <CardFullView key={`card-${card.id}`} card={card}/>)}
+            {cards && cards.map(card => <CardFullView key={`card-${card.id}`} card={card}/>)}
         </div>
     );
 }
