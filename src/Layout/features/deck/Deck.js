@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useParams, Link, Switch, Route, useRouteMatch } from "react-router-dom";
+import {useParams, Switch, Route, useRouteMatch } from "react-router-dom";
 
 import DeckFullView from "./DeckFullView";
 import DeckForm from "./DeckForm";
