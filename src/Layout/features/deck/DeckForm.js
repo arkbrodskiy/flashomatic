@@ -1,26 +1,15 @@
 import React, {useEffect, useState} from "react";
-import {Link, useHistory} from "react-router-dom";
-import { updateDeck } from "../../../utils/api";
+import {Link} from "react-router-dom";
 
 
 
-function DeckForm({formType, deck = {id: '', name: '', description: ''}}) {
+function DeckForm({deck, dbSubmit}) {
     const [currentDeck, setCurrentDeck] = useState(deck)
     const [formSubmitted, setFormSubmitted] = useState(false)
-    const history = useHistory()
     useEffect( () => {
         const abortController = new AbortController()
-        const modifyDeck = async () => {
-            try {
-                await updateDeck(currentDeck, abortController.signal)
-                history.push('/')
-                history.go(0)
-            } catch (err) {
-                if (err.name !== 'AbortError') throw err
-            }
-        }
         if (formSubmitted) {
-            modifyDeck();
+            dbSubmit(currentDeck, abortController.signal);
             return () => abortController.abort()
         }
     }, [formSubmitted])
@@ -33,8 +22,6 @@ function DeckForm({formType, deck = {id: '', name: '', description: ''}}) {
     }
     return (
         <div>
-            <h2>Breadcrumb Navbar <Link to='/'>Home</Link></h2>
-            <h3>{formType}</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="deckName">Name</label>
@@ -61,7 +48,7 @@ function DeckForm({formType, deck = {id: '', name: '', description: ''}}) {
                         onChange={handleChange}
                     />
                 </div>
-                <button className="btn btn-secondary">Cancel</button>
+                <Link to='/' className="btn btn-secondary">Cancel</Link>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
