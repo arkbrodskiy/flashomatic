@@ -6,6 +6,7 @@ import NotFound from "./NotFound";
 import CreateDeckBtn from "./features/deck/CreateDeckBtn";
 import DeckList from "./features/deck/DeckList";
 import Deck from "./features/deck/Deck";
+import CreateDeck from "./features/deck/CreateDeck";
 import {listDecks} from "../utils/api/index"
 
 function Layout() {
@@ -34,7 +35,10 @@ function Layout() {
                   <CreateDeckBtn />
                   <DeckList decks={decks}/>
               </Route>
-              <Route path={`/decks/:deckId`}>
+              <Route path='/decks/new'>
+                  <CreateDeck />
+              </Route>
+              <Route path='/decks/:deckId'>
                   <Deck />
               </Route>
               <Route>
