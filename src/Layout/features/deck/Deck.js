@@ -5,6 +5,7 @@ import DeckFullView from "./DeckFullView";
 import EditDeck from "./EditDeck";
 import DeckStudy from "./DeckStudy";
 import CreateCard from "../card/CreateCard";
+import EditCard from "../card/EditCard";
 import { readDeck } from "../../../utils/api";
 
 function Deck() {
@@ -39,6 +40,9 @@ function Deck() {
                 </Route>
                 <Route path={`${path}/cards/new`}>
                     <CreateCard deck={deck} />
+                </Route>
+                <Route path={`${path}/cards/:cardId/edit`}>
+                    <EditCard />
                 </Route>
             </Switch>
         </div>

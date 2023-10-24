@@ -20,7 +20,7 @@ function DeckFullView({ deck }) {
                     </div>
                 </div>
             </div>
-            <CardList cards={deck.cards}/>
+            <CardList cards={deck.cards} />
         </div>
     );
 }

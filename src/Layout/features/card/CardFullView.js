@@ -1,6 +1,8 @@
 import React from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 
 function CardFullView({ card }) {
+    const {url} = useRouteMatch()
     return (
         <div>
             <div>
@@ -8,7 +10,7 @@ function CardFullView({ card }) {
                     <div className="card-body">
                         <p className="card-text">{card.front}</p>
                         <p className="card-text">{card.back}</p>
-                        <a href="#" className="btn btn-secondary">Edit</a>
+                        <Link to={`${url}/cards/${card.id}/edit`} className="btn btn-secondary">Edit</Link>
                         <a href="#" className="btn btn-danger">Delete</a>
                     </div>
                 </div>

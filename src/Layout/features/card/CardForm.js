@@ -43,7 +43,7 @@ function CardForm({card, dbSubmit}) {
                         name="back"
                         rows={3}
                         placeholder="Back side of card"
-                        value={currentCard.description}
+                        value={currentCard.back}
                         onChange={handleChange}
                     />
                 </div>
