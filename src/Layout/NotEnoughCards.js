@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function NotEnoughCards({ numCards }) {
+function NotEnoughCards({ deck }) {
     return (
         <div className="NotFound">
             <h2>Not enough Cards</h2>
-            <p>You need at least 3 cards to study. There are {numCards} cards in this deck</p>
-            <button className="btn btn-primary">Add Cards</button>
+            <p>You need at least 3 cards to study. There are {deck.cards.length} cards in this deck</p>
+            <Link to={`/decks/${deck.id}/cards/new`} className="btn btn-primary">Add Cards</Link>
         </div>
     );
 }

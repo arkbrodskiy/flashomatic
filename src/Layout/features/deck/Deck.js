@@ -4,6 +4,7 @@ import {useParams, Switch, Route, useRouteMatch } from "react-router-dom";
 import DeckFullView from "./DeckFullView";
 import EditDeck from "./EditDeck";
 import DeckStudy from "./DeckStudy";
+import CreateCard from "../card/CreateCard";
 import { readDeck } from "../../../utils/api";
 
 function Deck() {
@@ -35,6 +36,9 @@ function Deck() {
                 </Route>
                 <Route path={`${path}/study`}>
                     <DeckStudy />
+                </Route>
+                <Route path={`${path}/cards/new`}>
+                    <CreateCard deck={deck} />
                 </Route>
             </Switch>
         </div>
