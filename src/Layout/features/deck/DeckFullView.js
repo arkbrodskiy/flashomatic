@@ -14,7 +14,7 @@ function DeckFullView({ deck }) {
                         <h5 className="card-title">{deck.name}</h5>
                         <p className="card-text">{deck.description}</p>
                         <Link to={`${url}/edit`} className="btn btn-secondary">Edit</Link>
-                        <a href="#" className="btn btn-primary">Study</a>
+                        <Link to={`${url}/study`} className="btn btn-primary">Study</Link>
                         <a href="#" className="btn btn-primary">Add Cards</a>
                         <a href="#" className="btn btn-danger">Delete</a>
                     </div>

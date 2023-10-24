@@ -3,6 +3,7 @@ import {useParams, Link, Switch, Route, useRouteMatch } from "react-router-dom";
 
 import DeckFullView from "./DeckFullView";
 import DeckForm from "./DeckForm";
+import DeckStudy from "./DeckStudy";
 import { readDeck } from "../../../utils/api";
 
 function Deck() {
@@ -31,6 +32,9 @@ function Deck() {
                 </Route>
                 <Route path={`${path}/edit`}>
                     <DeckForm formType={'Edit Deck'} deck={deck}/>
+                </Route>
+                <Route path={`${path}/study`}>
+                    <DeckStudy />
                 </Route>
             </Switch>
         </div>
