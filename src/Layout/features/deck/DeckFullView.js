@@ -27,7 +27,12 @@ function DeckFullView({ deck }) {
     }, [deletePressed])
     return (
         <div>
-            <h2>Breadcrumb Navbar <Link to='/'>Home</Link></h2>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to='/'>Home</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">{deck.name}</li>
+                </ol>
+            </nav>
             <div>
                 <div className="card w-75">
                     <div className="card-body">
