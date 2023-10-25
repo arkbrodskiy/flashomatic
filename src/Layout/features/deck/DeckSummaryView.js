@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link, useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faEye, faBookBookmark, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import {deleteDeck} from "../../../utils/api";
 
 function DeckSummaryView({ deck }) {
@@ -31,10 +33,25 @@ function DeckSummaryView({ deck }) {
                     <p className="card-text">{deck.description}</p>
                     <div className="d-flex justify-content-between">
                         <div>
-                            <Link to={`/decks/${deck.id}`} className="btn btn-secondary">View</Link>
-                            <Link to={`/decks/${deck.id}/study`} className="btn btn-primary ml-2">Study</Link>
+                            <Link
+                                to={`/decks/${deck.id}`}
+                                className="btn btn-secondary"
+                            >
+                                {<FontAwesomeIcon icon={faEye} />} View
+                            </Link>
+                            <Link
+                                to={`/decks/${deck.id}/study`}
+                                className="btn btn-primary ml-2"
+                            >
+                                {<FontAwesomeIcon icon={faBookBookmark} />} Study
+                            </Link>
                         </div>
-                        <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
+                        <button
+                            onClick={() => setDeletePressed(true)}
+                            className="btn btn-danger"
+                        >
+                            {<FontAwesomeIcon icon={faTrashCan} />}
+                        </button>
                     </div>
                 </div>
             </div>
