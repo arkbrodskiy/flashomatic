@@ -31,7 +31,6 @@ function DeckStudy() {
                     <li className="breadcrumb-item active" aria-current="page">Data</li>
                 </ol>
             </nav>
-            <h2>Future Breadcrumb Navbar <Link to='/'>Home</Link></h2>
             <h3>Study: {deck.name}</h3>
             {deck.id && deck.cards.length < 3 && <NotEnoughCards deck={deck}/>}
             {deck.id && deck.cards.length > 2 && <CardStudyContainer cards={deck.cards}/>}
