@@ -1,7 +1,25 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useHistory } from "react-router-dom";
+import {deleteDeck} from "../../../utils/api";
 
 function DeckSummaryView({ deck }) {
+    const history = useHistory()
+    const [deletePressed, setDeletePressed] = useState(false)
+    useEffect( () => {
+        const abortController = new AbortController()
+        const removeDeck = async () => {
+            try {
+                if (window.confirm("Delete the deck? You will not be able to recover it")) {
+                    await deleteDeck(deck.id, abortController.signal)
+                }
+                history.go(0)
+            } catch (err) {
+                if (err.name !== 'AbortError') throw err
+            }
+        }
+        if (deletePressed) removeDeck()
+        return () => abortController.abort()
+    }, [deletePressed])
     return (
         <div>
             <div className="card w-50">
@@ -11,7 +29,7 @@ function DeckSummaryView({ deck }) {
                     <p className="card-text">{deck.description}</p>
                     <Link to={`/decks/${deck.id}`} className="btn btn-secondary">View</Link>
                     <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
-                    <a href="#" className="btn btn-danger">Delete</a>
+                    <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
                 </div>
             </div>
         </div>
