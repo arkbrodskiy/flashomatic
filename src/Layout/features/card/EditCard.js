@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link, useHistory, useParams} from "react-router-dom";
 
 import CardForm from "./CardForm";
-import { readCard, updateCard } from "../../../utils/api";
+import {readCard, readDeck, updateCard} from "../../../utils/api";
 
 
 
@@ -10,11 +10,14 @@ import { readCard, updateCard } from "../../../utils/api";
 function EditCard() {
     const { deckId, cardId } = useParams()
     const [card, setCard] = useState({})
+    const [deck, setDeck] = useState()
     useEffect(() => {
         const abortController = new AbortController()
         const fetchCard = async () => {
             try {
-                const cardJson =await readCard(cardId, abortController.signal)
+                const deckJson = await readDeck(deckId, abortController.signal)
+                setDeck(deckJson)
+                const cardJson = await readCard(cardId, abortController.signal)
                 setCard(cardJson)
             } catch (err) {
                 if (err.name !== 'AbortError') throw err
