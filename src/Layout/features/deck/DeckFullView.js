@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faPen, faBookBookmark, faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import CardList from "../card/CardList";
 import {deleteDeck} from "../../../utils/api";
@@ -41,12 +43,12 @@ function DeckFullView({ deck }) {
                         <div className="d-flex justify-content-between">
                             <div>
 
-                                <Link to={`${url}/study`} className="btn btn-primary mr-2">Study</Link>
-                                <Link to={`${url}/cards/new`} className="btn btn-primary">Add Cards</Link>
+                                <Link to={`${url}/study`} className="btn btn-primary mr-2">{<FontAwesomeIcon icon={faBookBookmark} />} Study</Link>
+                                <Link to={`${url}/cards/new`} className="btn btn-primary">{<FontAwesomeIcon icon={faPlus} />} Add Cards</Link>
                             </div>
                             <div>
-                                <Link to={`${url}/edit`} className="btn btn-secondary mr-2">Edit</Link>
-                                <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
+                                <Link to={`${url}/edit`} className="btn btn-secondary mr-2">{<FontAwesomeIcon icon={faPen} />} Edit</Link>
+                                <button onClick={() => setDeletePressed(true)} className="btn btn-danger">{<FontAwesomeIcon icon={faTrashCan} />}</button>
                             </div>
                         </div>
                     </div>

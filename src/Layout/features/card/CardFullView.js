@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { deleteCard } from "../../../utils/api";
 
 function CardFullView({ card }) {
@@ -28,8 +30,18 @@ function CardFullView({ card }) {
                     <p className="card-text">{card.front}</p>
                     <p className="card-text">{card.back}</p>
                     <div className="d-flex justify-content-end">
-                        <Link to={`${url}/cards/${card.id}/edit`} className="btn btn-secondary mr-2">Edit</Link>
-                        <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
+                        <Link
+                            to={`${url}/cards/${card.id}/edit`}
+                            className="btn btn-secondary mr-2"
+                        >
+                            {<FontAwesomeIcon icon={faPen} />} Edit
+                        </Link>
+                        <button
+                            onClick={() => setDeletePressed(true)}
+                            className="btn btn-danger"
+                        >
+                            {<FontAwesomeIcon icon={faTrashCan} />}
+                        </button>
                     </div>
                 </div>
             </div>
