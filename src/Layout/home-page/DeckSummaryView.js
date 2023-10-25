@@ -27,7 +27,7 @@ function DeckSummaryView({ deck, isOdd }) {
     return (
         <div>
             <div className={classNames({
-                "card w-50": true,
+                "card w-50 mb-2": true,
                 "odd-element": isOdd,
             })}>
                 <div className="card-body">
