@@ -33,7 +33,7 @@ function Deck() {
                     <DeckFullView deck={deck}/>
                 </Route>
                 <Route path={`${path}/edit`}>
-                    <EditDeck deck={deck}/>
+                    <EditDeck />
                 </Route>
                 <Route path={`${path}/study`}>
                     <DeckStudy />

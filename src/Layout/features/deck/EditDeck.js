@@ -1,12 +1,27 @@
-import React from "react";
-import {Link, useHistory} from "react-router-dom";
-import { updateDeck } from "../../../utils/api";
+import React, {useEffect, useState} from "react";
+import {Link, useHistory, useParams } from "react-router-dom";
+import {readDeck, updateDeck} from "../../../utils/api";
 
 import DeckForm from "./DeckForm";
 
 
 
-function EditDeck({deck}) {
+function EditDeck() {
+    const { deckId } = useParams()
+    const [deck, setDeck] = useState({})
+    useEffect( () => {
+        const abortController = new AbortController()
+        const fetchDeck = async () => {
+            try {
+                const deckJson = await readDeck(deckId, abortController.signal)
+                setDeck(deckJson)
+            } catch (err) {
+                if (err.name !== 'AbortError') throw err
+            }
+        }
+        fetchDeck();
+        return () => abortController.abort()
+    }, [deckId])
     const history = useHistory()
     const modifyDeck = async (updatedDeck, signal) => {
         try {
@@ -21,7 +36,7 @@ function EditDeck({deck}) {
         <div>
             <h2>Breadcrumb Navbar <Link to='/'>Home</Link></h2>
             <h3>Edit Deck</h3>
-            <DeckForm deck={deck} dbSubmit={modifyDeck}/>
+            {deck.id && <DeckForm deck={deck} dbSubmit={modifyDeck}/>}
         </div>
     );
 }
