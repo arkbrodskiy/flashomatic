@@ -7,8 +7,8 @@ import DeckForm from "./DeckForm";
 
 
 function EditDeck() {
-    const { deckId } = useParams()
     const [deck, setDeck] = useState({})
+    const { deckId } = useParams()
     useEffect( () => {
         const abortController = new AbortController()
         const fetchDeck = async () => {

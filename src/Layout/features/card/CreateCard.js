@@ -1,15 +1,30 @@
-import React from "react";
-import {Link, useHistory} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useHistory, useParams} from "react-router-dom";
 
 import CardForm from "./CardForm";
-import { createCard } from "../../../utils/api";
+import {createCard, readDeck} from "../../../utils/api";
 
 
 
 
-function CreateCard({ deck }) {
+function CreateCard() {
     const history = useHistory()
-    const emptyCard = {id: '', front: '', back: '', deckId: deck.id}
+    const [deck, setDeck] = useState({})
+    const { deckId } = useParams()
+    const emptyCard = {id: '', front: '', back: '', deckId: deckId}
+    useEffect( () => {
+        const abortController = new AbortController()
+        const fetchDeck = async () => {
+            try {
+                const deckJson = await readDeck(deckId, abortController.signal)
+                setDeck(deckJson)
+            } catch (err) {
+                if (err.name !== 'AbortError') throw err
+            }
+        }
+        fetchDeck();
+        return () => abortController.abort()
+    }, [deckId])
     const addCard = async (newCard, signal) => {
         try {
             newCard = {...newCard, id: deck.cards.length + 10}
