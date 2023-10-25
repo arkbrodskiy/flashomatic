@@ -10,7 +10,7 @@ import {readCard, readDeck, updateCard} from "../../../utils/api";
 function EditCard() {
     const { deckId, cardId } = useParams()
     const [card, setCard] = useState({})
-    const [deck, setDeck] = useState()
+    const [deck, setDeck] = useState({})
     useEffect(() => {
         const abortController = new AbortController()
         const fetchCard = async () => {
@@ -38,7 +38,13 @@ function EditCard() {
     }
     return (
         <div>
-            <h2>Breadcrumb Navbar <Link to='/'>Home</Link></h2>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to='/'>Home</Link></li>
+                    <li className="breadcrumb-item"><Link to={`/decks/${deckId}`}>Deck {deck.name}</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">Edit Card {cardId}</li>
+                </ol>
+            </nav>
             <h3>Edit Card</h3>
             {card.id && <CardForm card={card} dbSubmit={modifyCard}/>}
         </div>
