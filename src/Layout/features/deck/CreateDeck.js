@@ -22,7 +22,12 @@ function CreateDeck() {
     }
     return (
         <div>
-            <h2>Breadcrumb Navbar <Link to='/'>Home</Link></h2>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to='/'>Home</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">Create Deck</li>
+                </ol>
+            </nav>
             <h3>Create Deck</h3>
             <DeckForm deck={emptyDeck} dbSubmit={addDeck}/>
         </div>
