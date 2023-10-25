@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import {Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEye, faBookBookmark, faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import {deleteDeck} from "../../../utils/api";
-import classNames from "../../../utils/class-names";
-import '../../../App.css'
+import {deleteDeck} from "../../utils/api";
+import classNames from "../../utils/class-names";
+import '../../App.css'
 
 function DeckSummaryView({ deck, isOdd }) {
     const history = useHistory()

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import {useParams, Switch, Route, useRouteMatch } from "react-router-dom";
 
 import DeckFullView from "./DeckFullView";
-import EditDeck from "./EditDeck";
-import DeckStudy from "./DeckStudy";
-import CreateCard from "../card/CreateCard";
-import EditCard from "../card/EditCard";
-import { readDeck } from "../../../utils/api";
+import EditDeck from "../deck-edit/EditDeck";
+import DeckStudy from "../deck-study/DeckStudy";
+import CreateCard from "../card-create/CreateCard";
+import EditCard from "../card-edit/EditCard";
+import { readDeck } from "../../utils/api";
 
 function Deck() {
     const [deck, setDeck] = useState({deck: 'empty'})

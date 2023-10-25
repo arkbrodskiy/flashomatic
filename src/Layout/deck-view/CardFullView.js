@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import { deleteCard } from "../../../utils/api";
-import classNames from "../../../utils/class-names";
-import '../../../App.css'
+import { deleteCard } from "../../utils/api";
+import classNames from "../../utils/class-names";
+import '../../App.css'
 
 function CardFullView({ card, isOdd }) {
     const history = useHistory()

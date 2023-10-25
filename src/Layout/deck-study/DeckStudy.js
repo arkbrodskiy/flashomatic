@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { Link, useParams } from "react-router-dom"
 
-import {readDeck} from "../../../utils/api";
-import CardStudyContainer from "../card/CardStudyContainer";
-import NotEnoughCards from "../../NotEnoughCards";
+import {readDeck} from "../../utils/api";
+import CardStudyContainer from "./CardStudyContainer";
+import NotEnoughCards from "./NotEnoughCards";
 
 
 function DeckStudy() {

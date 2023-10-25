@@ -3,8 +3,8 @@ import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPen, faBookBookmark, faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-import CardList from "../card/CardList";
-import {deleteDeck} from "../../../utils/api";
+import CardList from "./CardList";
+import {deleteDeck} from "../../utils/api";
 
 function DeckFullView({ deck }) {
     const { url } = useRouteMatch()

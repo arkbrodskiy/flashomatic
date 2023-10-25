@@ -3,10 +3,10 @@ import {Switch, Route } from "react-router-dom";
 
 import Header from "./Header";
 import NotFound from "./NotFound";
-import CreateDeckBtn from "./features/home-page/CreateDeckBtn";
-import DeckList from "./features/home-page/DeckList";
-import Deck from "./features/deck/Deck";
-import CreateDeck from "./features/deck/CreateDeck";
+import CreateDeckBtn from "./home-page/CreateDeckBtn";
+import DeckList from "./home-page/DeckList";
+import Deck from "./deck-view/Deck";
+import CreateDeck from "./deck-create/CreateDeck";
 import {listDecks} from "../utils/api/index"
 
 function Layout() {

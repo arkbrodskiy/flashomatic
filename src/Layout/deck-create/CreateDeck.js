@@ -1,8 +1,8 @@
 import React from "react";
 import {Link, useHistory} from "react-router-dom";
-import { listDecks, createDeck } from "../../../utils/api";
+import { listDecks, createDeck } from "../../utils/api";
 
-import DeckForm from "./DeckForm";
+import DeckForm from "../forms/DeckForm";
 
 
 

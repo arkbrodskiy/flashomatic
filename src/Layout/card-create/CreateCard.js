@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Link, useHistory, useParams} from "react-router-dom";
 
-import CardForm from "./CardForm";
-import {createCard, readDeck} from "../../../utils/api";
+import CardForm from "../forms/CardForm";
+import {createCard, readDeck} from "../../utils/api";
 
 
 
