@@ -34,7 +34,13 @@ function EditDeck() {
     }
     return (
         <div>
-            <h2>Breadcrumb Navbar <Link to='/'>Home</Link></h2>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to='/'>Home</Link></li>
+                    <li className="breadcrumb-item"><Link to={`/decks/${deckId}`}>{deck.name}</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">Data</li>
+                </ol>
+            </nav>
             <h3>Edit Deck</h3>
             {deck.id && <DeckForm deck={deck} dbSubmit={modifyDeck}/>}
         </div>
