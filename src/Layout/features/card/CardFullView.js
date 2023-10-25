@@ -23,12 +23,12 @@ function CardFullView({ card }) {
     const {url} = useRouteMatch()
     return (
         <div>
-            <div>
-                <div className="card w-75">
-                    <div className="card-body">
-                        <p className="card-text">{card.front}</p>
-                        <p className="card-text">{card.back}</p>
-                        <Link to={`${url}/cards/${card.id}/edit`} className="btn btn-secondary">Edit</Link>
+            <div className="card w-75">
+                <div className="card-body">
+                    <p className="card-text">{card.front}</p>
+                    <p className="card-text">{card.back}</p>
+                    <div className="d-flex justify-content-end">
+                        <Link to={`${url}/cards/${card.id}/edit`} className="btn btn-secondary mr-2">Edit</Link>
                         <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
                     </div>
                 </div>

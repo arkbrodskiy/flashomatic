@@ -24,12 +24,18 @@ function DeckSummaryView({ deck }) {
         <div>
             <div className="card w-50">
                 <div className="card-body">
-                    <h5 className="card-title">{deck.name}</h5>
-                    <p>{deck.cards.length} cards</p>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <h5 className="card-title">{deck.name}</h5>
+                        <p className="text-muted">{deck.cards.length} cards</p>
+                    </div>
                     <p className="card-text">{deck.description}</p>
-                    <Link to={`/decks/${deck.id}`} className="btn btn-secondary">View</Link>
-                    <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
-                    <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
+                    <div className="d-flex justify-content-between">
+                        <div>
+                            <Link to={`/decks/${deck.id}`} className="btn btn-secondary">View</Link>
+                            <Link to={`/decks/${deck.id}/study`} className="btn btn-primary ml-2">Study</Link>
+                        </div>
+                        <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>

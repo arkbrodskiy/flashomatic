@@ -38,10 +38,17 @@ function DeckFullView({ deck }) {
                     <div className="card-body">
                         <h5 className="card-title">{deck.name}</h5>
                         <p className="card-text">{deck.description}</p>
-                        <Link to={`${url}/edit`} className="btn btn-secondary">Edit</Link>
-                        <Link to={`${url}/study`} className="btn btn-primary">Study</Link>
-                        <Link to={`${url}/cards/new`} className="btn btn-primary">Add Cards</Link>
-                        <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
+                        <div className="d-flex justify-content-between">
+                            <div>
+
+                                <Link to={`${url}/study`} className="btn btn-primary mr-2">Study</Link>
+                                <Link to={`${url}/cards/new`} className="btn btn-primary">Add Cards</Link>
+                            </div>
+                            <div>
+                                <Link to={`${url}/edit`} className="btn btn-secondary mr-2">Edit</Link>
+                                <button onClick={() => setDeletePressed(true)} className="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

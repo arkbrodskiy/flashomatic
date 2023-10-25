@@ -48,7 +48,7 @@ function DeckForm({deck, dbSubmit}) {
                         onChange={handleChange}
                     />
                 </div>
-                <Link to={`/decks/${deck.id}`} className="btn btn-secondary">Cancel</Link>
+                <Link to={`/decks/${deck.id}`} className="btn btn-secondary mr-2">Cancel</Link>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>

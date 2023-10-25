@@ -47,7 +47,7 @@ function CardForm({card, dbSubmit}) {
                         onChange={handleChange}
                     />
                 </div>
-                <Link to={`/decks/${card.deckId}`} className="btn btn-secondary">Done</Link>
+                <Link to={`/decks/${card.deckId}`} className="btn btn-secondary mr-2">Done</Link>
                 <button type="submit" className="btn btn-primary">Save</button>
             </form>
         </div>

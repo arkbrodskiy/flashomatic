@@ -31,7 +31,7 @@ function DeckStudy() {
                     <li className="breadcrumb-item active" aria-current="page">Data</li>
                 </ol>
             </nav>
-            <h3>Study: {deck.name}</h3>
+            <h2>Study: {deck.name}</h2>
             {deck.id && deck.cards.length < 3 && <NotEnoughCards deck={deck}/>}
             {deck.id && deck.cards.length > 2 && <CardStudyContainer cards={deck.cards}/>}
 

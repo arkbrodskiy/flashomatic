@@ -25,7 +25,6 @@ function CardStudyContainer({ cards }) {
     }, [idx])
     return (
         <div>
-            <h3>CardStudyContainer</h3>
             <CardStudyView
                 card={card}
                 idx={idx}
