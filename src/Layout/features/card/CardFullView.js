@@ -25,10 +25,12 @@ function CardFullView({ card }) {
     const {url} = useRouteMatch()
     return (
         <div>
-            <div className="card w-75">
+            <div className="card w-50">
                 <div className="card-body">
-                    <p className="card-text">{card.front}</p>
-                    <p className="card-text">{card.back}</p>
+                    <div className="d-flex justify-content-between">
+                        <p className="card-text">{card.front}</p>
+                        <p className="card-text">{card.back}</p>
+                    </div>
                     <div className="d-flex justify-content-end">
                         <Link
                             to={`${url}/cards/${card.id}/edit`}
