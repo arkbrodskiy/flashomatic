@@ -3,8 +3,8 @@ import {Switch, Route } from "react-router-dom";
 
 import Header from "./Header";
 import NotFound from "./NotFound";
-import CreateDeckBtn from "./features/deck/CreateDeckBtn";
-import DeckList from "./features/deck/DeckList";
+import CreateDeckBtn from "./features/home-page/CreateDeckBtn";
+import DeckList from "./features/home-page/DeckList";
 import Deck from "./features/deck/Deck";
 import CreateDeck from "./features/deck/CreateDeck";
 import {listDecks} from "../utils/api/index"
