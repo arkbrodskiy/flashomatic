@@ -36,10 +36,10 @@ function DeckFullView({ deck }) {
                 </ol>
             </nav>
             <div>
-                <div className="card w-50">
-                    <div className="card-body">
-                        <h5 className="card-title">{deck.name}</h5>
-                        <p className="card-text">{deck.description}</p>
+                <div className="w-50">
+                    <div >
+                        <h5>{deck.name}</h5>
+                        <p>{deck.description}</p>
                         <div className="d-flex justify-content-between">
                             <div>
 

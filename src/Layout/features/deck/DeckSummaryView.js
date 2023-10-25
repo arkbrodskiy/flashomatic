@@ -3,8 +3,10 @@ import {Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEye, faBookBookmark, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import {deleteDeck} from "../../../utils/api";
+import classNames from "../../../utils/class-names";
+import '../../../App.css'
 
-function DeckSummaryView({ deck }) {
+function DeckSummaryView({ deck, isOdd }) {
     const history = useHistory()
     const [deletePressed, setDeletePressed] = useState(false)
     useEffect( () => {
@@ -24,7 +26,10 @@ function DeckSummaryView({ deck }) {
     }, [deletePressed])
     return (
         <div>
-            <div className="card w-50">
+            <div className={classNames({
+                "card w-50": true,
+                "odd-element": isOdd,
+            })}>
                 <div className="card-body">
                     <div className="d-flex justify-content-between align-items-center">
                         <h5 className="card-title">{deck.name}</h5>

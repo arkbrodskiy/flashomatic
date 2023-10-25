@@ -3,8 +3,10 @@ import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { deleteCard } from "../../../utils/api";
+import classNames from "../../../utils/class-names";
+import '../../../App.css'
 
-function CardFullView({ card }) {
+function CardFullView({ card, isOdd }) {
     const history = useHistory()
     const [deletePressed, setDeletePressed] = useState(false)
     useEffect( () => {
@@ -25,7 +27,10 @@ function CardFullView({ card }) {
     const {url} = useRouteMatch()
     return (
         <div>
-            <div className="card w-50">
+            <div className={classNames({
+                "card w-50": true,
+                "odd-element": isOdd,
+            })}>
                 <div className="card-body">
                     <div className="d-flex justify-content-between">
                         <p className="card-text">{card.front}</p>
