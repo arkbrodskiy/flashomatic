@@ -25,7 +25,7 @@ function EditCard() {
         }
         fetchCard()
         return () => abortController.abort()
-    }, []);
+    }, [deckId]);
     const history = useHistory()
     const modifyCard = async (updatedCard, signal) => {
         try {
